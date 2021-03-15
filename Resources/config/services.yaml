@@ -1,0 +1,51 @@
+services:
+    #uxadmin.example:
+    #    class: Ux\Bundle\AdminBundle\Example
+    #    arguments: ["@service_id", "plain_value", "%parameter%"]
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false       # Allows optimizing the container by removing unused services; this also means
+                            # fetching services directly from the container via $container->get() won't work.
+                            # The best practice is to be explicit about your dependencies anyway.
+    session.handler.pdo:
+        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+        public:    false
+        arguments:
+            #- 'mysql:host=%database_host%;port=%database_port%;dbname=%database_name%'
+            - '%env(DATABASE_URL)%'
+            - { db_table: 'sessions', db_id_col: 'sess_id' }
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    Ux\Bundle\AdminBundle\:
+        resource: '../../*'
+        exclude:
+            - '../../DependencyInjection'
+            - '../../Entity'
+            - '../../UxAdminBundle.php'
+            - '../../Tests'
+            - '../../Migrations'
+            - '../../Resources'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    Ux\Bundle\AdminBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+
+    Ux\Bundle\AdminBundle\Repository\:
+        resource: '../../Repository'
+        tags: ['doctrine.repository_service']
+
+    #Ux\Bundle\AdminBundle\DataFixtures\:
+    #    resource: '../../DataFixtures'
+    #    tags: ['doctrine.fixture.orm']
+
+    Ux\Bundle\AdminBundle\EventListener\:
+        resource: '../../EventListener'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+

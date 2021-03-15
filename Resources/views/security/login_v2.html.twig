@@ -1,0 +1,98 @@
+{% extends '@UxAdmin/main.html.twig' %}
+{% block tag_body %}
+<body class="pace-top">
+{% endblock %}
+
+{% block page_body %}
+	<!-- begin login-cover -->
+	<div class="login-cover">
+		<div class="login-cover-image" style="background-image: url({{ asset('assets/img/login-bg/login-bg-17.jpg', uxadmin) }})" data-id="login-cover-image"></div>
+		<div class="login-cover-bg"></div>
+	</div>
+	<!-- end login-cover -->
+
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade">
+		<!-- begin login -->
+		<div class="login login-v2" data-pageload-addclass="animated fadeIn">
+			<!-- begin brand -->
+			<div class="login-header">
+				<div class="brand">
+					<span class="logo"></span> <b>Color</b> Admin
+					<small>responsive bootstrap 4 admin template</small>
+				</div>
+				<div class="icon">
+					<i class="fa fa-lock"></i>
+				</div>
+			</div>
+			<!-- end brand -->
+			<!-- begin login-content -->
+			<div class="login-content">
+				<form action="{{ path('ux_admin_security_logincheck') }}" method="POST" class="margin-bottom-0">
+					<div class="form-group m-b-20">
+						<input id="username" name="_username" value="{{ last_username }}" type="text" class="form-control form-control-lg" placeholder="User Name Or Email Address" required />
+					</div>
+					<div class="form-group m-b-20">
+						<input id="password" name="_password"  type="password" class="form-control form-control-lg" placeholder="Password" required />
+					</div>
+					<div class="checkbox checkbox-css m-b-20">
+						<input type="checkbox" id="remember_me" name="_remember_me" />
+						<label for="remember_me">
+							Remember Me
+						</label>
+					</div>
+					<input type="hidden" name="_target_path" value="{{ target_path ?? 'ux_admin_admin_index' }}" />
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+					<div class="login-buttons">
+						<button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
+					</div>
+					<div class="m-t-20">
+						Not a member yet? Click <a href="javascript:;">here</a> to register.
+					</div>
+{% if error %}
+					<div class="m-t-20">
+						<h5 class="text-danger text-center">
+							{{ error.messageKey | trans(error.messageData, 'security') }}
+						</h5>
+					</div>
+{% endif %}
+				</form>
+			</div>
+			<!-- end login-content -->
+		</div>
+		<!-- end login -->
+
+		<!-- begin login-bg -->
+		<ul class="login-bg-list clearfix">
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-18.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-18.jpg', uxadmin) }})"></a></li>
+			<li class="active"><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-17.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-17.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-16.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-16.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-15.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-15.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-14.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-14.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-13.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-13.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-12.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-12.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-11.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-11.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-10.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-10.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-8.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-8.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-7.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-7.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-6.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-6.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-4.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-4.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-3.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-3.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-2.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-2.jpg', uxadmin) }})"></a></li>
+			<li><a href="javascript:;" data-click="change-bg" data-img="{{ asset('assets/img/login-bg/login-bg-1.jpg', uxadmin) }}" style="background-image: url({{ asset('assets/img/login-bg/login-bg-1.jpg', uxadmin) }})"></a></li>
+		</ul>
+		<!-- end login-bg -->
+
+{{ include('@UxAdmin/theme-panel.html.twig') }}
+	</div>
+	<!-- end page container -->
+
+{% endblock %}
+
+
+{% block page_footer %}
+	{{ parent() }}
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{{ asset('assets/js/login-v2.js', uxadmin) }}"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+{% endblock %}

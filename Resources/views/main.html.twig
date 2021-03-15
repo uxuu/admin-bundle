@@ -1,0 +1,29 @@
+{% extends '@UxAdmin/base.html.twig' %}
+{% set uxadmin = 'uxadmin' %}
+
+{% block page_meta %}
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+{% endblock %}
+
+{% block page_link %}
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="{{ asset('assets/css/default/app.min.css', uxadmin) }}" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+{% endblock %}
+
+{% block page_header %}
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+{% endblock %}
+
+{% block page_footer %}
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="{{ asset('assets/js/app.min.js', uxadmin) }}"></script>
+	<script src="{{ asset('assets/js/theme/default.min.js', uxadmin) }}"></script>
+	<!-- ================== END BASE JS ================== -->
+{% endblock %}
+

@@ -1,0 +1,70 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory: { memory: ~ }
+        entity_provider:
+            entity:
+                class: Ux\Bundle\AdminBundle\Entity\User
+                property: username
+
+    encoders:
+        Ux\Bundle\AdminBundle\Entity\User:
+            algorithm: bcrypt
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        admin:
+            anonymous: ~
+            pattern: ^/admin
+            provider: entity_provider
+            access_denied_url: ~
+            access_denied_handler: ~ #Ux\Bundle\AdminBundle\Security\AccessDeniedHandler
+
+            form_login:
+                login_path: ux_admin_security_login
+                check_path: ux_admin_security_logincheck
+                csrf_token_generator: security.csrf.token_manager
+                #success_handler: Ux\Bundle\AdminBundle\Security\LoginSuccessHandler
+                #failure_handler: Ux\Bundle\AdminBundle\Security\LoginFailureHandler
+                failure_path: ~
+
+            logout:
+                path: ux_admin_security_logout
+                target: ux_admin_security_login
+                #success_handler: Ux\Bundle\AdminBundle\Security\LogoutSuccessHandler
+                #handlers: [ Ux\Bundle\AdminBundle\Security\LogoutHandler ]
+
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 86400
+                path: ux_admin_admin_index
+
+            switch_user:
+                provider: ~
+                parameter: _switch_user
+                role: ROLE_ALLOWED_TO_SWITCH
+
+        main:
+            anonymous: true
+
+            # activate different ways to authenticate
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    #access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+
+    role_hierarchy:
+        ROLE_ADMIN:
