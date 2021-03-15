@@ -1,5 +1,5 @@
 {
-    "name": "uxg/admin-bundle",
+    "name": "ux/admin-bundle",
     "type": "symfony-bundle",
     "homepage": "https://github.com/uxuu/admin-bundle",
     "description": "Support for admin template in Symfony.",
