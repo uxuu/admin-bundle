@@ -1,0 +1,65 @@
+{
+    "name": "uxg/admin-bundle",
+    "type": "symfony-bundle",
+    "homepage": "https://github.com/uxuu/admin-bundle",
+    "description": "Support for admin template in Symfony.",
+    "license": "MIT",
+    "keywords":    [
+    ],
+
+    "authors": [
+        {
+            "name": "UxGood",
+            "email": "uxgood@hotmail.com"
+        },
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/uxuu/admin-bundle/contributors"
+        }
+    ],
+
+    "require": {
+        "php": "^5.6|^7.0",
+        "doctrine/doctrine-bundle": "^1.0|^2.0",
+        "doctrine/orm":             "^2.0",
+        "symfony/asset":            "^3.0|^4.0|^5.0",
+        "symfony/framework-bundle": "^3.0|^4.0|^5.0",
+        "symfony/security-bundle":  "^3.0|^4.0|^5.0",
+        "symfony/twig-bundle":      "^3.0|^4.0|^5.0",
+        "symfony/yaml":             "^3.0|^4.0|^5.0"
+    },
+
+    "require-dev": {
+        "symfony/monolog-bundle":      "^2.0|^3.0",
+        "symfony/stopwatch":           "^3.0|^4.0|^5.0",
+        "symfony/web-profiler-bundle": "^3.0|^4.0|^5.0"
+    },
+
+    "conflict": {
+    },
+
+    "suggest": {
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Ux\\Bundle\\AdminBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Ux\\Bundle\\AdminBundle\\Tests\\": "Tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}
