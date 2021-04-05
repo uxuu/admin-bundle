@@ -39,9 +39,13 @@ services:
         resource: '../../Repository'
         tags: ['doctrine.repository_service']
 
-    #Ux\Bundle\AdminBundle\DataFixtures\:
-    #    resource: '../../DataFixtures'
-    #    tags: ['doctrine.fixture.orm']
+    Ux\Bundle\AdminBundle\DataFixtures\:
+        resource: '../../DataFixtures'
+        tags: ['doctrine.fixture.orm']
+
+    Ux\Bundle\AdminBundle\Command\:
+        resource: '../../Command'
+        tags: ['console.command']
 
     Ux\Bundle\AdminBundle\EventListener\:
         resource: '../../EventListener'
