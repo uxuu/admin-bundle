@@ -8,11 +8,13 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
+use Ux\Bundle\AdminBundle\Entity\User;
 
 class CreateUserCommand extends Command
 {
     // the name of the command (the part after "bin/console")
     protected static $defaultName = 'admin:create-user';
+    protected $container;
 
     public function __construct(bool $requirePassword = false)
     {
@@ -36,7 +38,8 @@ class CreateUserCommand extends Command
             //->addArgument('username', InputArgument::REQUIRED, 'The username of the user.')
             //->addArgument('password', $this->requirePassword ? InputArgument::REQUIRED : InputArgument::OPTIONAL, 'User password');
             ->addOption('username', 'u', InputOption::VALUE_REQUIRED, 'The username of the user.', null)
-            ->addOption('password', 'p', InputOption::VALUE_OPTIONAL, 'The password of the user.', null);
+            ->addOption('password', 'p', InputOption::VALUE_OPTIONAL, 'The password of the user.', null)
+            ->addOption('email', 'm', InputOption::VALUE_OPTIONAL, 'The email address of the user.', null);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -51,11 +54,29 @@ class CreateUserCommand extends Command
             '',
         ]);
 
+        $name = $input->getOption('username');
+        $pass = $input->getOption('password');
+        $email = $input->getOption('email');
+        $em = $this->getContainer()->get('doctrine')->getManager();
+        $user =$this->getContainer()->get('doctrine')->getRepository(User::class)->findOneBy(['username' => $name]);
+        if (null === $user) {
+            $user = new User();
+            $user->setUsername($name);
+            $user->setPassword($pass);
+            $user->setEmail($email);
+            $em->persist($user);
+        } else {
+            $user->setUsername($name);
+            $user->setPassword($pass);
+            $user->setEmail($email);
+        }
+        $em->flush();
+
         // retrieve the argument value using getArgument()
         //$output->writeln('Username: '.$input->getArgument('username'));
         //$output->writeln('Password: '.$input->getArgument('password'));
-        $output->writeln('Username: '.$input->getOption('username'));
-        $output->writeln('Password: '.$input->getOption('password'));
+        //$output->writeln('Username: '.$input->getOption('username'));
+        //$output->writeln('Password: '.$input->getOption('password'));
         //$section1 = $output->section();
         //$section2 = $output->section();
 
@@ -77,5 +98,22 @@ class CreateUserCommand extends Command
         // Output is now completely empty!
 
         return 0;
+    }
+
+    /**
+     * @return ContainerInterface
+     *
+     * @throws \LogicException
+     */
+    protected function getContainer()
+    {
+        if (null === $this->container) {
+            $application = $this->getApplication();
+            if (null === $application) {
+                throw new \LogicException('The container cannot be retrieved as the application instance is not yet set.');
+            }
+            $this->container = $application->getKernel()->getContainer();
+        }
+        return $this->container;
     }
 }
