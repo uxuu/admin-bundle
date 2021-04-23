@@ -34,7 +34,7 @@ security:
             remember_me:
                 secret:   '%kernel.secret%'
                 lifetime: 86400
-                path: ux_admin_admin_index
+                path: ux_admin_default_index
 
             switch_user:
                 provider: ~
