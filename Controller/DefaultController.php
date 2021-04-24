@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DefaultController extends AbstractController
 {
+
     /**
      * @Route("/")
      */
@@ -27,17 +28,4 @@ class DefaultController extends AbstractController
         return new Response($name);
     }
 
-    /**
-     * @Route("/login_v2")
-     */
-    public function loginAction(Request $request, AuthenticationUtils $authenticationUtils)
-    {
-        return $this->render('@UxAdmin/security/login_v2.html.twig', [
-            // last username entered by the user (if any)
-            'last_username' => $authenticationUtils->getLastUsername(),
-            // last authentication error (if any)
-            'error' => $authenticationUtils->getLastAuthenticationError(),
-            'target_path' => $request->getSession()->get('_security.secured_area.target_path'),
-        ]);
-    }
 }

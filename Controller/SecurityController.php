@@ -16,13 +16,31 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class SecurityController extends AbstractController
 {
+
 	/**
 	 * @Route("/login", methods={"GET"})
 	 */
 	public function loginAction(Request $request, AuthenticationUtils $authenticationUtils)
 	{
 		if ($this->getUser()) {
-			return $this->redirectToRoute("ux_admin_admin_index");
+			return $this->redirectToRoute("ux_admin_default_index");
+		}
+		return $this->render('@UxAdmin/security/login.html.twig', [
+			// last username entered by the user (if any)
+			'last_username' => $authenticationUtils->getLastUsername(),
+			// last authentication error (if any)
+			'error' => $authenticationUtils->getLastAuthenticationError(),
+			'target_path' => $request->getSession()->get('_security.secured_area.target_path'),
+		]);
+	}
+
+	/**
+	 * @Route("/login_v2", methods={"GET"})
+	 */
+	public function login_v2Action(Request $request, AuthenticationUtils $authenticationUtils)
+	{
+		if ($this->getUser()) {
+			return $this->redirectToRoute("ux_admin_default_index");
 		}
 		return $this->render('@UxAdmin/security/login_v2.html.twig', [
 			// last username entered by the user (if any)
