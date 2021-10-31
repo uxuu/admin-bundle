@@ -11,7 +11,7 @@ security:
 
     firewalls:
         admin:
-            anonymous: ~
+            #anonymous: ~
             pattern: ^/admin
             provider: entity_provider
             access_denied_url: ~
@@ -20,7 +20,7 @@ security:
             form_login:
                 login_path: ux_admin_security_login
                 check_path: ux_admin_security_logincheck
-                csrf_token_generator: security.csrf.token_manager
+                #csrf_token_generator: security.csrf.token_manager
                 #success_handler: Ux\Bundle\AdminBundle\Security\LoginSuccessHandler
                 #failure_handler: Ux\Bundle\AdminBundle\Security\LoginFailureHandler
                 failure_path: ~
