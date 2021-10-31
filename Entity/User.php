@@ -3,12 +3,13 @@ namespace Ux\Bundle\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * @ORM\Table(name="admin_users", options={"collate"="ucs2_general_ci", "charset"="ucs2", "engine"="InnoDB", "comment"="users"})
  * @ORM\Entity(repositoryClass="Ux\Bundle\AdminBundle\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serializable
 {
     /**
      * @ORM\Column(type="integer")
@@ -44,6 +45,10 @@ class User implements UserInterface, \Serializable
         // $this->salt = md5(uniqid('', true));
     }
 
+    public function getUserIdentifier():?int
+    {
+        return $this->id;
+    }
     public function setUsername(string $username):self
     {
         $this->username = $username;
@@ -77,7 +82,7 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
-    public function getPassword()
+    public function getPassword():?string
     {
         return $this->password;
     }

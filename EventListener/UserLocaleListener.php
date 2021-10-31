@@ -1,7 +1,7 @@
 <?php
 namespace Ux\Bundle\AdminBundle\EventListener;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -17,9 +17,9 @@ class UserLocaleListener implements EventSubscriberInterface
      */
     private $session;
 
-    public function __construct(SessionInterface $session)
+    public function __construct(RequestStack $requestStack)
     {
-        $this->session = $session;
+        $this->session = $requestStack->getSession();
     }
 
     /**
