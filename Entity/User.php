@@ -55,12 +55,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
         return $this;
     }
 
-    public function getUsername()
+    public function getUsername():string
     {
         return $this->username;
     }
 
-    public function getSalt()
+    public function getSalt():?string
     {
         // you *may* need a real salt depending on your encoder
         // see section on salt below
@@ -87,7 +87,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
         return $this->password;
     }
 
-    public function getRoles()
+    public function getRoles():array
     {
         return ['ROLE_ADMIN'];
     }

@@ -30,7 +30,7 @@ class InitConfigCommand extends Command
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Force to initialize.', null);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output):int
     {
         if (!$output instanceof ConsoleOutputInterface) {
             throw new \LogicException('This command accepts only an instance of "ConsoleOutputInterface".');

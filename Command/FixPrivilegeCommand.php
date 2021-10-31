@@ -26,7 +26,7 @@ class FixPrivilegeCommand extends Command
             ->addOption('user', 'u', InputOption::VALUE_REQUIRED, 'The user to grant privilege.', null);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output):int
     {
         if (!$output instanceof ConsoleOutputInterface) {
             throw new \LogicException('This command accepts only an instance of "ConsoleOutputInterface".');

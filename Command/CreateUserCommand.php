@@ -42,7 +42,7 @@ class CreateUserCommand extends Command
             ->addOption('email', 'm', InputOption::VALUE_OPTIONAL, 'The email address of the user.', null);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output):int
     {
         if (!$output instanceof ConsoleOutputInterface) {
             throw new \LogicException('This command accepts only an instance of "ConsoleOutputInterface".');

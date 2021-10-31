@@ -2,6 +2,7 @@
 namespace Ux\Bundle\AdminBundle\Repository;
 
 use Ux\Bundle\AdminBundle\Entity\User;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 use Doctrine\Persistence\ManagerRegistry;
 //use Doctrine\Common\Persistence\ManagerRegistry;
@@ -15,7 +16,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     }
 
     //Using a Custom Query to Load the User
-    public function loadUserByUsername($username)
+    public function loadUserByUsername($username):?UserInterface
     {
         return $this->createQueryBuilder('u')
             ->where('u.username = :username OR u.email = :email')
