@@ -25,4 +25,15 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+
+    //Using a Query to Load the User by Identifier
+    public function loadUserByIdentifier(string $identifier):?UserInterface
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.id = :id')
+            ->setParameter('id', $identifier)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

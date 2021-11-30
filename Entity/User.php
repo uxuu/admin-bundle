@@ -45,7 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
         // $this->salt = md5(uniqid('', true));
     }
 
-    public function getUserIdentifier():?int
+    public function getUserIdentifier(): string
     {
         return $this->id;
     }
