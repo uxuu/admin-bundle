@@ -107,10 +107,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
             $this->id,
             $this->username,
             $this->password,
+            $this->email,
+            $this->isActive,
             // see section on salt below
             // $this->salt,
         ]);
     }
+    public function __serialize(): array
+    {
+        return [
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->email,
+            $this->isActive,
+            // see section on salt below
+            // $this->salt,
+        ];
+    }
+
 
     /** @see \Serializable::unserialize() */
     public function unserialize($serialized)
@@ -119,9 +134,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
             $this->id,
             $this->username,
             $this->password,
+            $this->email,
+            $this->isActive,
             // see section on salt below
             // $this->salt
         ) = unserialize($serialized, ['allowed_classes' => false]);
+    }
+    public function __unserialize(array $data)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->email,
+            $this->isActive,
+        ) = $data;
     }
 }
 
