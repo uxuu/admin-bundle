@@ -1,0 +1,77 @@
+/*
+   1.0 Color system
+   2.0 RTL Setting
+   3.0 Component Color Setting 
+   4.0 Grid & Container Setting
+   5.0 Body Setting
+   6.0 App Component Setting
+   7.0 z-index Setting
+   8.0 Font Setting
+   9.0 Radius Setting
+  10.0 Caret Setting
+  11.0 Heading / Paragraph Setting
+  12.0 Pagination Setting
+  13.0 Button Setting
+  14.0 Form Component Setting
+  15.0 Input Setting
+  16.0 Table Setting
+  17.0 Modal Setting
+  18.0 List Group Setting
+  19.0 Tabs Setting
+  20.0 Alert Setting
+  21.0 Card Setting
+  22.0 Dropown Setting
+  23.0 Progress Setting
+  24.0 Jumbotron Setting
+*/
+a {
+  color: #ff80c0; }
+  a:hover, a:focus {
+    color: #ffbfe0; }
+
+.gradient-enabled .sidebar .nav > li.active > a {
+  background: -webkit-linear-gradient(to bottom, #ff1a8e 0%, #e60074 100%);
+  background: -moz-linear-gradient(to bottom, #ff1a8e 0%, #e60074 100%);
+  background: -o-linear-gradient(to bottom, #ff1a8e 0%, #e60074 100%);
+  background: linear-gradient(to bottom, #ff1a8e 0%, #e60074 100%); }
+
+.header .navbar-brand .navbar-logo {
+  border-color: rgba(255, 64, 161, 0.25); }
+  .header .navbar-brand .navbar-logo:before {
+    border-color: rgba(255, 64, 161, 0.5); }
+  .header .navbar-brand .navbar-logo:after {
+    background: rgba(255, 64, 161, 0.75); }
+
+.header .navbar-brand b {
+  color: #ff40a1; }
+
+.header.navbar-default .navbar-brand i {
+  color: #ff0081; }
+
+.header.navbar-default .navbar-nav > li > a .label {
+  background: #ff0081; }
+
+.header.navbar-inverse {
+  background: #ff0081; }
+  @media (max-width: 767.98px) {
+    .header.navbar-inverse .navbar-nav {
+      border-color: #ff339a; } }
+  .header.navbar-inverse .navbar-nav > li > a .label {
+    background: #000000; }
+
+.top-menu .nav > li.active > a {
+  background: #ff0081; }
+
+.float-sub-menu-container .float-sub-menu li.active:after {
+  border-color: #ff0081;
+  background: #ff0081; }
+
+.bg-theme,
+.btn-scroll-to-top {
+  background-color: #ff0081 !important; }
+
+.label-theme {
+  background-color: #ff0081; }
+
+.text-theme {
+  color: #ff0081; }

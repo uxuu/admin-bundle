@@ -10,7 +10,8 @@
 {% block page_link %}
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="{{ asset('assets/css/default/app.min.css', uxadmin) }}" rel="stylesheet" />
+	<link href="{{ asset('assets/css/vendor.min.css', uxadmin) }}" rel="stylesheet" />
+	<link href="{{ asset('assets/css/default/style.min.css', uxadmin) }}" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 {% endblock %}
 
@@ -22,7 +23,7 @@
 
 {% block page_footer %}
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="{{ asset('assets/js/app.min.js', uxadmin) }}"></script>
+	<script src="{{ asset('assets/js/vendor.min.js', uxadmin) }}"></script>
 	<script src="{{ asset('assets/js/app.js', uxadmin) }}"></script>
 	<script src="{{ asset('assets/js/theme/default.min.js', uxadmin) }}"></script>
 	<!-- ================== END BASE JS ================== -->

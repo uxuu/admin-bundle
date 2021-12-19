@@ -1,0 +1,123 @@
+/*
+   1.0 Color system
+   2.0 RTL Setting
+   3.0 Component Color Setting 
+   4.0 Grid & Container Setting
+   5.0 Body Setting
+   6.0 App Component Setting
+   7.0 z-index Setting
+   8.0 Font Setting
+   9.0 Radius Setting
+  10.0 Caret Setting
+  11.0 Heading / Paragraph Setting
+  12.0 Pagination Setting
+  13.0 Button Setting
+  14.0 Form Component Setting
+  15.0 Input Setting
+  16.0 Table Setting
+  17.0 Modal Setting
+  18.0 List Group Setting
+  19.0 Tabs Setting
+  20.0 Alert Setting
+  21.0 Card Setting
+  22.0 Dropown Setting
+  23.0 Progress Setting
+*/
+a {
+  color: #009688; }
+  a:hover, a:focus {
+    color: #00786d; }
+
+.header .navbar-nav > li > a .label {
+  background: #009688; }
+
+.sidebar .nav > li > a .badge {
+  background: #009688;
+  color: #FFFFFF; }
+
+.sidebar .nav > li > a .label.label-theme {
+  background: #009688;
+  color: #FFFFFF; }
+
+.sidebar .nav > li.active > a {
+  background: #009688;
+  color: #FFFFFF; }
+
+.sidebar .nav > li.active.has-sub > a .label,
+.sidebar .nav > li.active.has-sub > a .badge {
+  background: #009688;
+  color: #FFFFFF; }
+
+.sidebar li.active > a {
+  background: #009688;
+  color: #FFFFFF; }
+
+.sidebar li.active.has-sub > a .caret {
+  color: #009688; }
+
+.page-with-light-sidebar .sidebar .nav > li > a .label,
+.page-with-light-sidebar .sidebar .nav > li > a .badge {
+  background: #bfe5e1;
+  color: #00877a; }
+
+.page-with-light-sidebar .sidebar .nav > li.active > a {
+  color: #008074;
+  background: #d9efed; }
+  .page-with-light-sidebar .sidebar .nav > li.active > a i,
+  .page-with-light-sidebar .sidebar .nav > li.active > a .caret {
+    color: inherit; }
+  .page-with-light-sidebar .sidebar .nav > li.active > a .label,
+  .page-with-light-sidebar .sidebar .nav > li.active > a .badge {
+    background: #008074;
+    color: #FFFFFF; }
+
+.page-with-light-sidebar .sidebar .nav > li.active.has-sub > a > .caret {
+  color: #009688; }
+
+.page-with-light-sidebar .sidebar .nav > li.active.has-sub > a .label,
+.page-with-light-sidebar .sidebar .nav > li.active.has-sub > a .badge {
+  background: #bfe5e1;
+  color: #00877a; }
+
+.page-with-light-sidebar .sidebar .sub-menu > li > a .text-theme {
+  color: #009688; }
+
+.page-with-light-sidebar .sidebar .sub-menu > li.active > a {
+  background: #d9efed;
+  color: #008074; }
+
+.page-with-light-sidebar .sidebar .sub-menu > li.active.has-sub > a > .caret {
+  color: #009688; }
+
+.page-with-light-sidebar.page-sidebar-minified .sidebar .nav > li.active > a {
+  color: #008074;
+  background: #d9efed; }
+  .page-with-light-sidebar.page-sidebar-minified .sidebar .nav > li.active > a i {
+    color: #009688; }
+
+.top-menu .nav > li.active > a {
+  background: #009688; }
+
+.float-sub-menu-container .float-sub-menu li.active:after {
+  border-color: #009688;
+  background: #009688; }
+
+.page-with-light-sidebar .sidebar .sub-menu > li.active:after {
+  border-color: #009688; }
+
+.coming-soon .brand .logo {
+  background: #009688; }
+
+.todolist > li.active > a i:before {
+  content: '\f14a';
+  color: #009688; }
+
+.todolist > li.active > a:hover i:before, .todolist > li.active > a:focus i:before {
+  color: #009688; }
+
+.pace .pace-progress {
+  background: #009688; }
+
+.pace .pace-activity {
+  border-top-color: #009688;
+  border-left-color: #009688; }

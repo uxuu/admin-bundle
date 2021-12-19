@@ -1,0 +1,79 @@
+/*
+   1.0 Color system
+   2.0 RTL Setting
+   3.0 Component Color Setting 
+   4.0 Grid & Container Setting
+   5.0 Body Setting
+   6.0 App Component Setting
+   7.0 z-index Setting
+   8.0 Font Setting
+   9.0 Radius Setting
+  10.0 Caret Setting
+  11.0 Heading / Paragraph Setting
+  12.0 Pagination Setting
+  13.0 Button Setting
+  14.0 Form Component Setting
+  15.0 Input Setting
+  16.0 Table Setting
+  17.0 Modal Setting
+  18.0 List Group Setting
+  19.0 Tabs Setting
+  20.0 Alert Setting
+  21.0 Card Setting
+  22.0 Dropown Setting
+  23.0 Progress Setting
+  24.0 Jumbotron Setting
+*/
+a {
+  color: #999999; }
+  a:hover, a:focus {
+    color: #cccccc; }
+
+.gradient-enabled .sidebar .nav > li.active > a {
+  background: -webkit-linear-gradient(to bottom, #404040 0%, #262626 100%);
+  background: -moz-linear-gradient(to bottom, #404040 0%, #262626 100%);
+  background: -o-linear-gradient(to bottom, #404040 0%, #262626 100%);
+  background: linear-gradient(to bottom, #404040 0%, #262626 100%); }
+
+.header .navbar-brand .navbar-logo {
+  border-color: rgba(102, 102, 102, 0.25); }
+  .header .navbar-brand .navbar-logo:before {
+    border-color: rgba(102, 102, 102, 0.5); }
+  .header .navbar-brand .navbar-logo:after {
+    background: rgba(102, 102, 102, 0.75); }
+
+.header .navbar-brand b {
+  color: #666666; }
+
+.header.navbar-default .navbar-brand i {
+  color: #333333; }
+
+.header.navbar-default .navbar-nav > li > a .label {
+  background: #333333; }
+
+.header.navbar-inverse {
+  background: #333333; }
+  @media (max-width: 767.98px) {
+    .header.navbar-inverse .navbar-nav {
+      border-color: #5c5c5c; } }
+  .header.navbar-inverse .navbar-nav > li > a .label {
+    background: #000000;
+    background: #ff3502;
+    color: #FFFFFF; }
+
+.top-menu .nav > li.active > a {
+  background: #333333; }
+
+.float-sub-menu-container .float-sub-menu li.active:after {
+  border-color: #333333;
+  background: #333333; }
+
+.bg-theme,
+.btn-scroll-to-top {
+  background-color: #333333 !important; }
+
+.label-theme {
+  background-color: #333333; }
+
+.text-theme {
+  color: #333333; }
