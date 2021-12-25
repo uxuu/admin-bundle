@@ -1,0 +1,100 @@
+{%- set appHeaderClass = appHeaderInverse is defined ? 'app-header-inverse ' %}
+{% set appHeaderMenu = appHeaderMenu ?? '1' %}
+{% set appHeaderMegaMenu = appHeaderMegaMenu ?? '1' %}
+{% set appHeaderTopMenu = appHeaderTopMenu ?? '1' -%}
+{% set appHeaderLanguageBar = appHeaderLanguageBar ?? '1' -%}
+
+<!-- BEGIN #header -->
+<div id="header" class="app-header {{ appHeaderClass }}">
+	<!-- BEGIN navbar-header -->
+	<div class="navbar-header">
+{% if appSidebarTwo %}
+		<button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-end-mobile">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+{% endif %}
+		<a href="{{ path('ux_admin_default_index') }}" class="navbar-brand"><span class="navbar-logo"></span> <b>Color</b> Admin</a>
+{#% if appHeaderMegaMenu and not appSidebarTwo %#}
+{% if appHeaderMegaMenu %}
+		<button type="button" class="navbar-mobile-toggler" data-bs-toggle="collapse" data-bs-target="#top-navbar">
+			<span class="fa-stack fa-lg">
+				<i class="far fa-square fa-stack-2x"></i>
+				<i class="fa fa-cog fa-stack-1x mt-1px"></i>
+			</span>
+		</button>
+{% endif %}
+{% if appTopMenu and not appSidebarHide and not appSidebarTwo %}
+		<button type="button" class="navbar-mobile-toggler" data-toggle="app-top-menu-mobile">
+			<span class="fa-stack fa-lg">
+				<i class="far fa-square fa-stack-2x"></i>
+				<i class="fa fa-cog fa-stack-1x mt-1px"></i>
+			</span>
+		</button>
+{% endif %}
+{% if appTopMenu and appSidebarHide and not appSidebarTwo %}
+		<button type="button" class="navbar-mobile-toggler" data-toggle="app-top-menu-mobile">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+{% endif %}
+{% if not appSidebarHide %}
+		<button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-mobile">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+{% endif %}
+	</div>
+	
+{% if appHeaderMegaMenu %}
+	{%~ include '@UxAdmin/include/component/header-mega-menu.html.twig' %}
+{% endif %}
+	
+	<!-- BEGIN header-nav -->
+	<div class="navbar-nav">
+		<div class="navbar-item navbar-form">
+			<form action="" method="POST" name="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Enter keyword" />
+					<button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+				</div>
+			</form>
+		</div>
+		<div class="navbar-item dropdown">
+			<a href="#" data-bs-toggle="dropdown" class="navbar-link dropdown-toggle icon">
+				<i class="fa fa-bell"></i>
+				<span class="badge">5</span>
+			</a>
+			{%~ include '@UxAdmin/include/component/header-dropdown-notification.twig' %}
+		</div>
+		
+{% if appHeaderLanguageBar %}
+		{%~ include '@UxAdmin/include/component/header-language-bar.twig' %}
+{% endif %}
+		
+		<div class="navbar-item navbar-user dropdown">
+			<a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+				<img src="{{ asset('img/user/user-13.jpg', uxadmin) }}" alt="" /> 
+				<span>
+					<span class="d-none d-md-inline">Adam Schwartz</span>
+					<b class="caret"></b>
+				</span>
+			</a>
+			{%~ include '@UxAdmin/include/component/header-dropdown-profile.twig' %}
+		</div>
+		
+{% if appSidebarTwo %}
+		<div class="navbar-divider d-none d-md-block"></div>
+		<div class="navbar-item d-none d-md-block">
+			<a href="javascript:;" data-toggle="app-sidebar-end" class="navbar-link icon">
+				<i class="fa fa-th"></i>
+			</a>
+		</div>
+{% endif %}
+	</div>
+	<!-- END header-nav -->
+</div>
+<!-- END #header -->

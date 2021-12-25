@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.getLocale() }}">
+<head>
+	{%~ set uxadmin = 'uxadmin' %}
+	{%- include '@UxAdmin/include/head.html.twig' -%}
+</head>
+	{%- set paceTop = paceTop ?? '' %}
+	{% set appBoxedLayout = appBoxedLayout ?? '' %}
+	{% set appSidebarHide = appSidebarHide ?? '' %}
+	{% set appSidebarEnd = appSidebarEnd ?? '' %}
+	{% set appSidebarLight = appSidebarLight ?? '' %}
+	{% set appSidebarWide = appSidebarWide ?? '1' %}
+	{% set appSidebarMinified = appSidebarMinified ?? '' %}
+	{% set appSidebarTwo = appSidebarTwo ?? '1' %}
+	{% set appSidebarSearch = appSidebarSearch ?? '1' %}
+	{% set appContentFullHeight = appContentFullHeight ?? '1' %}
+	{% set appHeaderHide = appHeaderHide ?? '' %}
+	{% set appTopMenu = appTopMenu ?? '' %}
+
+	{%- set bodyClass = appBoxedLayout ? 'boxed-layout ' %}
+	{% set bodyClass = bodyClass ~ (paceTop ? 'pace-top ') %}
+
+	{%- set appClass = appTopMenu ? 'app-with-top-menu '%}
+	{% set appClass = appClass ~ (appHeaderHide ? 'app-without-header ' : ' app-header-fixed ') %}
+	{% set appClass = appClass ~ (appSidebarEnd ? 'app-with-end-sidebar ') %}
+	{% set appClass = appClass ~ (appSidebarLight ? 'app-with-light-sidebar ') %}
+	{% set appClass = appClass ~ (appSidebarWide ? 'app-with-wide-sidebar ') %}
+	{% set appClass = appClass ~ (appSidebarHide ? 'app-without-sidebar ') %}
+	{% set appClass = appClass ~ (appSidebarMinified ? 'app-sidebar-minified ') %}
+	{% set appClass = appClass ~ (appSidebarTwo ? 'app-with-two-sidebar app-sidebar-end-toggled ') %}
+	{% set appClass = appClass ~ (appContentFullHeight ? 'app-content-full-height ') %}
+
+	{%- set appContentClass = appContentClass ?? '' ~%}
+<body class="{{ bodyClass }}">
+    {%~ include '@UxAdmin/include/component/page-loader.html.twig' %}
+	
+	<div id="app" class="app app-sidebar-fixed {{ appClass }}">
+
+		{%~ if not appHeaderHide %}
+			{%- include '@UxAdmin/include/header.html.twig'%}
+		{% endif %}
+
+		{%~ if appTopMenu %}
+			{%- include '@UxAdmin/include/top-menu.html.twig' %}
+		{% endif %}
+
+		{%~ if not appSidebarHide %}
+			{%- include '@UxAdmin/include/sidebar.html.twig' %}
+		{% endif %}
+
+		{%~ if appSidebarTwo %}
+			{%- include '@UxAdmin/include/sidebar-right.html.twig' %}
+		{% endif %}
+
+		<div id="content" class="app-content {{ appContentClass }}"></div>
+
+		{%~ include '@UxAdmin/include/component/scroll-top-btn.html.twig' %}
+
+		{%~ include '@UxAdmin/include/component/theme-panel.html.twig' %}
+
+	</div>
+
+	{%~ include '@UxAdmin/include/page-js.html.twig' %}
+</body>
+</html>

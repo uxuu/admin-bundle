@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.getLocale() }}">
+<head>
+	{%~ include 'include.head.twig' %}
+</head>
+	{%~ set bodyClass = appBoxedLayout is defined ?? 'boxed-layout ' %}
+	{%- set bodyClass = bodyClass ~ (paceTop is defined ? 'pace-top ') %}
+<body class="{{ bodyClass }}">
+	{%~ include 'include.component.page-loader.twig' %}
+	
+	{%~ block content %}{% endblock %}
+			
+	{%~ include 'include.page-js.twig' %}
+</body>
+</html>
