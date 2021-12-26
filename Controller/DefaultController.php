@@ -28,4 +28,14 @@ class DefaultController extends AbstractController
         //return new Response($name);
     }
 
+    /**
+     * @Route("/partial/{name}")
+     */
+    public function partialAction($name, Request $request)
+    {
+        //return $this->render("@UxAdmin/partial/$name.twig");
+        return new Response('');
+    }
+
+
 }
