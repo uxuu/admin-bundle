@@ -74,7 +74,7 @@ return [
 			'title' => 'Tabs & Accordions',
 			'route-name' => 'ui-tabs-accordions'
 		],[
-			'url' => '#pages/ui_unlimited_nav_tabs.html',
+			'url' => '#pages/ui_unlimited_tabs.html',
 			'title' => 'Unlimited Nav Tabs',
 			'route-name' => 'ui-unlimited-nav-tabs'
 		],[
@@ -108,7 +108,7 @@ return [
 			'title' => 'Ionicons',
 			'route-name' => 'ui-ionicons'
 		],[
-			'url' => '#pages/ui_tree_view.html',
+			'url' => '#pages/ui_tree.html',
 			'title' => 'Tree View',
 			'route-name' => 'ui-tree-view'
 		],[
@@ -120,7 +120,7 @@ return [
 			'title' => 'Social Buttons',
 			'route-name' => 'ui-social-buttons'
 		],[
-			'url' => '#pages/ui_intro_js.html',
+			'url' => '#pages/ui_tour.html',
 			'title' => 'Intro JS',
 			'route-name' => 'ui-intro-js'
 		],[
@@ -173,7 +173,7 @@ return [
 			'title' => 'X-Editable',
 			'route-name' => 'form-x-editable'
 		],[
-			'url' => '#pages/form_multiple_file_upload.html',
+			'url' => '#pages/form_multiple_upload.html',
 			'title' => 'Multiple File Upload',
 			'route-name' => 'form-multiple-file-upload'
 		],[
@@ -210,7 +210,7 @@ return [
 				'title' => 'ColReorder',
 				'route-name' => 'table-manage-colreorder'
 			],[
-				'url' => '#pages/table_manage_fixed_column.html',
+				'url' => '#pages/table_manage_fixed_columns.html',
 				'title' => 'Fixed Column',
 				'route-name' => 'table-manage-fixed-column'
 			],[
@@ -423,7 +423,7 @@ return [
 			'title' => 'Page with Mixed Menu',
 			'route-name' => 'page-with-mixed-menu'
 		],[
-			'url' => '#pages/boxed_layout_with_mixed_menu.html',
+			'url' => '#pages/page_boxed_layout_with_mixed_menu.html',
 			'title' => 'Boxed Layout with Mixed Menu',
 			'route-name' => 'boxed-layout-with-mixed-menu'
 		],[
@@ -451,7 +451,7 @@ return [
 			'title' => 'Coming Soon Page',
 			'route-name' => 'extra-coming-soon'
 		],[
-			'url' => '#pages/extra_search_result.html',
+			'url' => '#pages/extra_search_results.html',
 			'title' => 'Search Results',
 			'route-name' => 'extra-search-result'
 		],[
@@ -459,7 +459,7 @@ return [
 			'title' => 'Invoice',
 			'route-name' => 'extra-invoice'
 		],[
-			'url' => '#pages/extra_404_page.html',
+			'url' => '#pages/extra_404_error.html',
 			'title' => '404 Error Page',
 			'route-name' => 'extra-error-page'
 		],[

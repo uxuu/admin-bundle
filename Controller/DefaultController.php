@@ -24,8 +24,8 @@ class DefaultController extends AbstractController
      */
     public function pagesAction($name, Request $request)
     {
-        //return $this->render("@UxAdmin/pages/$name");
-        return new Response($name);
+        return $this->render("@UxAdmin/pages/$name.twig");
+        //return new Response($name);
     }
 
 }
