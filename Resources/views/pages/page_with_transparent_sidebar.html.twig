@@ -48,12 +48,12 @@ App.setPageOption({
 	})
 
 	$.when(
-		$.getScript('{{ asset("plugins/@highlightjs/cdn-assets/highlight.min.js", uxadmin) }}':),
+		$.getScript('{{ asset("plugins/@highlightjs/cdn-assets/highlight.min.js", uxadmin) }}'),
 		$.Deferred(function( deferred ){
 			$(deferred.resolve);
 		})
 	).done(function() {
-		$.getScript('{{ asset("js/demo/render.highlight.js", uxadmin) }}':),
+		$.getScript('{{ asset("js/demo/render.highlight.js", uxadmin) }}'),
 		$.Deferred(function( deferred ){
 			$(deferred.resolve);
 		})

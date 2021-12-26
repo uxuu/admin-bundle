@@ -2175,12 +2175,12 @@
 	App.restartGlobalFunction();
 
 	$.when(
-		$.getScript('{{ asset("plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js", uxadmin) }}':),
+		$.getScript('{{ asset("plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js", uxadmin) }}'),
 		$.Deferred(function( deferred ){
 			$(deferred.resolve);
 		})
 	).done(function() {
-		$.getScript('{{ asset("js/demo/pos-table-booking.demo.js", uxadmin) }}':),
+		$.getScript('{{ asset("js/demo/pos-table-booking.demo.js", uxadmin) }}'),
 		$.Deferred(function( deferred ){
 			$(deferred.resolve);
 		})

@@ -56,12 +56,12 @@ $.ajax({
 	})
 
 	$.when(
-		$.getScript('{{ asset("plugins/@highlightjs/cdn-assets/highlight.min.js", uxadmin) }}':),
+		$.getScript('{{ asset("plugins/@highlightjs/cdn-assets/highlight.min.js", uxadmin) }}'),
 		$.Deferred(function( deferred ){
 			$(deferred.resolve);
 		})
 	).done(function() {
-		$.getScript('{{ asset("js/demo/render.highlight.js", uxadmin) }}':),
+		$.getScript('{{ asset("js/demo/render.highlight.js", uxadmin) }}'),
 		$.Deferred(function( deferred ){
 			$(deferred.resolve);
 		})
@@ -75,13 +75,13 @@ $.ajax({
 			App.restartGlobalFunction();
 			
 			$.when(
-				$.getScript('{{ asset("plugins/jquery-sparkline/jquery.sparkline.min.js", uxadmin) }}':),
-				$.getScript('{{ asset("plugins/jquery-knob/dist/jquery.knob.min.js", uxadmin) }}':),
+				$.getScript('{{ asset("plugins/jquery-sparkline/jquery.sparkline.min.js", uxadmin) }}'),
+				$.getScript('{{ asset("plugins/jquery-knob/dist/jquery.knob.min.js", uxadmin) }}'),
 				$.Deferred(function( deferred ){
 					$(deferred.resolve);
 				})
 			).done(function() {
-				$.getScript('{{ asset("js/demo/page-with-two-sidebar.demo.js", uxadmin) }}':),
+				$.getScript('{{ asset("js/demo/page-with-two-sidebar.demo.js", uxadmin) }}'),
 				$.Deferred(function( deferred ){
 					$(deferred.resolve);
 				})
