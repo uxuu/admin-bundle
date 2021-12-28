@@ -1,5 +1,5 @@
 {%- set uxadmin = 'uxadmin' -%}
-<div style="min-height: 100vh; background: url(../assets/img/cover/cover-scrum-board.png) no-repeat fixed; background-size: 360px; background-position: right bottom;">
+<div style="min-height: 100vh; background: url({{ asset('img/cover/cover-scrum-board.png', uxadmin) }}) no-repeat fixed; background-size: 360px; background-position: right bottom;">
 	<div class="d-flex align-items-center mb-3">
 		<div>
 			<ol class="breadcrumb">
@@ -120,11 +120,11 @@
 							<div class="mb-1 d-flex align-items-center">
 								<div class="me-2"><span class="badge bg-success">enhancement</span></div>
 								<div class="d-flex">
-									<div class="widget-img widget-img-xs rounded-circle bg-dark me-n2" style="background-image: url(../assets/img/user/user-1.jpg)">
+									<div class="widget-img widget-img-xs rounded-circle bg-dark me-n2" style="background-image: url({{ asset('img/user/user-1.jpg', uxadmin) }})">
 									</div>
-									<div class="widget-img widget-img-xs rounded-circle bg-dark me-n2" style="background-image: url(../assets/img/user/user-2.jpg)">
+									<div class="widget-img widget-img-xs rounded-circle bg-dark me-n2" style="background-image: url({{ asset('img/user/user-2.jpg', uxadmin) }})">
 									</div>
-									<div class="widget-img widget-img-xs rounded-circle bg-dark me-n2" style="background-image: url(../assets/img/user/user-3.jpg)">
+									<div class="widget-img widget-img-xs rounded-circle bg-dark me-n2" style="background-image: url({{ asset('img/user/user-3.jpg', uxadmin) }})">
 									</div>
 									<div class="widget-icon widget-icon-xs rounded-circle bg-muted text-white fs-10px">
 										+2
