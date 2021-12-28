@@ -2,55 +2,55 @@
 <div id="top-menu" class="app-top-menu">
 	<!-- BEGIN menu -->
 	<div class="menu">
-{% macro renderHeaderSubMenu(submenu) %}
-	{%~ for mm in submenu %}
-						<div class="menu-item {{ mm.sub_menu ?? '' ? 'has-sub' }}">
-							<a href="{{ mm.url }}" class="menu-link"><div class="menu-text">
-									{{- mm.title }}
-		{%- if mm.highlight ?? '' -%}
+{% macro renderHeaderSubMenu(menu) %}
+	{%~ for m in menu %}
+						<div class="menu-item {{ m.sub_menu ?? '' ? 'has-sub' }}">
+							<a href="{{ m.url }}" class="menu-link"><div class="menu-text">
+									{{-m.title }}
+		{%-if m.highlight ?? ''-%}
 									<i class="fa fa-paper-plane text-theme ms-1"></i>
-		{%- endif -%}
+		{%-endif-%}
 							</div>
-		{%- if mm.caret ?? '' %}
+		{%-if m.caret ?? '' %}
 							<div class="menu-caret"></div>
-		{%- endif -%}
+		{%-endif-%}
 							</a>
-		{%~ if mm.sub_menu ?? '' %}
+		{%~if m.sub_menu ?? '' %}
 							<div class="menu-submenu">
-								{{~ _self.renderHeaderSubMenu(mm.sub_menu) }}
+								{{~_self.renderHeaderSubMenu(m.sub_menu) }}
 							</div>
-		{%~ endif %}
+		{%~endif %}
 						</div>
-	{%~ endfor %}
+	{%~endfor %}
 {% endmacro %}
 
 {% for m in menu %}
 				<div class="menu-item {{ m.sub_menu ?? '' ? 'has-sub' }}">
 					<a href="{{ m.url }}" class="menu-link">
-	{%~ if m.img ?? '' %}
+	{%~if m.img ?? '' %}
 						<div class="menu-icon-img"><img src="{{ asset(m.img, uxadmin) }}" /></div>
-	{%~ endif %}
-	{%~ if m.icon ?? '' %}
+	{%~endif %}
+	{%~if m.icon ?? '' %}
 						<div class="menu-icon"><i class="{{ m.icon }}"></i></div>
-	{%~ endif %}
+	{%~endif %}
 						<div class="menu-text">
-							{{- m.title -}}
-	{%- if m.label ?? '' -%}
+							{{-m.title-}}
+	{%-if m.label ?? '' -%}
 							<span class="menu-label">{{ m.label }}</span>
-	{%- endif -%}
+	{%-endif-%}
 						</div>
-	{%~ if m.badge ?? '' %}
+	{%~if m.badge ?? '' %}
 						<div class="menu-badge">{{ m.badge }}</div>
-	{%~ endif %}
-	{%~ if m.caret ?? '' %}
+	{%~endif %}
+	{%~if m.caret ?? '' %}
 						<div class="menu-caret"></div>
-	{%~ endif %}
+	{%~endif %}
 					</a>
-	{%~ if m.sub_menu ?? '' %}
+	{%~if m.sub_menu ?? '' %}
 					<div class="menu-submenu">
 						{{~ _self.renderHeaderSubMenu(m.sub_menu) }}
 					</div>
-	{%~ endif %}
+	{%~endif %}
 				</div>
 {% endfor %}
 		<div class="menu-item menu-control menu-control-start">

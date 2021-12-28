@@ -1,14 +1,14 @@
-{%- set appHeaderClass = appHeaderInverse is defined ? 'app-header-inverse ' %}
-{% set appHeaderMenu = appHeaderMenu ?? '1' %}
+{% set appHeaderInverse = appHeaderInverse ?? '' %}
+{% set appHeaderMenu = appHeaderMenu ?? '' %}
 {% set appHeaderMegaMenu = appHeaderMegaMenu ?? '1' %}
-{% set appHeaderTopMenu = appHeaderTopMenu ?? '1' -%}
 {% set appHeaderLanguageBar = appHeaderLanguageBar ?? '1' -%}
+{% set appHeaderClass = appHeaderInverse ? 'app-header-inverse ' -%}
 
 <!-- BEGIN #header -->
 <div id="header" class="app-header {{ appHeaderClass }}">
 	<!-- BEGIN navbar-header -->
 	<div class="navbar-header">
-{% if appSidebarTwo %}
+{% if appSidebarTwo or appSidebarEnd %}
 		<button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-end-mobile">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -25,7 +25,8 @@
 			</span>
 		</button>
 {% endif %}
-{% if appTopMenu and not appSidebarHide and not appSidebarTwo %}
+{#% if appTopMenu and not appSidebarHide and not appSidebarTwo %#}
+{% if appTopMenu and not appSidebarHide %}
 		<button type="button" class="navbar-mobile-toggler" data-toggle="app-top-menu-mobile">
 			<span class="fa-stack fa-lg">
 				<i class="far fa-square fa-stack-2x"></i>
@@ -33,7 +34,8 @@
 			</span>
 		</button>
 {% endif %}
-{% if appTopMenu and appSidebarHide and not appSidebarTwo %}
+{#% if appTopMenu and appSidebarHide and not appSidebarTwo %#}
+{% if appTopMenu and appSidebarHide %}
 		<button type="button" class="navbar-mobile-toggler" data-toggle="app-top-menu-mobile">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -50,7 +52,7 @@
 	</div>
 	
 {% if appHeaderMegaMenu %}
-	{%~ include '@UxAdmin/include/component/header-mega-menu.html.twig' %}
+	{%~include '@UxAdmin/include/component/header-mega-menu.html.twig' %}
 {% endif %}
 	
 	<!-- BEGIN header-nav -->
@@ -72,7 +74,7 @@
 		</div>
 		
 {% if appHeaderLanguageBar %}
-		{%~ include '@UxAdmin/include/component/header-language-bar.twig' %}
+		{%~include '@UxAdmin/include/component/header-language-bar.twig' %}
 {% endif %}
 		
 		<div class="navbar-item navbar-user dropdown">
@@ -83,10 +85,10 @@
 					<b class="caret"></b>
 				</span>
 			</a>
-			{%~ include '@UxAdmin/include/component/header-dropdown-profile.twig' %}
+			{%~include '@UxAdmin/include/component/header-dropdown-profile.twig' %}
 		</div>
 		
-{% if appSidebarTwo %}
+{% if appSidebarTwo or appSidebarEnd %}
 		<div class="navbar-divider d-none d-md-block"></div>
 		<div class="navbar-item d-none d-md-block">
 			<a href="javascript:;" data-toggle="app-sidebar-end" class="navbar-link icon">
