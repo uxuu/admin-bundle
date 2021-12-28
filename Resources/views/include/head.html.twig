@@ -11,3 +11,15 @@
 <link href="{{ asset('plugins/flag-icon-css/css/flag-icons.css', uxadmin) }}" rel="stylesheet" />
 <!-- ================== END BASE CSS STYLE ================== -->
 
+<style>
+@media (min-width: 1280px) {
+    .boxed-layout .app-sidebar-end-toggled .app-sidebar-end.app-sidebar, .boxed-layout  .app-sidebar-end-toggled .app-sidebar-end.app-sidebar-bg {
+        /*Firefox*/
+        right: -moz-calc((100% - 1280px)/2);
+        /*chrome safari*/
+        right: -webkit-calc((100% - 1280px)/2);
+        /*Standard */
+        right: calc((100% - 1280px)/2);
+    }
+}
+</style>
