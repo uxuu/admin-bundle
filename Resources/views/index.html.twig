@@ -1,1 +1,18 @@
 {% extends '@UxAdmin/layout/default.html.twig' %}
+
+{%~block page_footer %}
+{{ parent() }}
+<!-- ================== BEGIN page-js ================== -->
+<script src="{{ asset('plugins/jquery-sparkline/jquery.sparkline.min.js', uxadmin) }}"></script>
+<script src="{{ asset('plugins/jquery-knob/dist/jquery.knob.min.js', uxadmin) }}"></script>
+<script src="{{ asset('js/demo/page-with-two-sidebar.demo.js', uxadmin) }}"></script>
+<!-- ================== END page-js ================== -->
+<script>
+App.settings({
+	ajaxMode: true,
+	ajaxDefaultUrl: '#pages/index.html',
+	ajaxType: 'GET',
+	ajaxDataType: 'html'
+});
+</script>
+{% endblock %}

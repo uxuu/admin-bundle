@@ -1,0 +1,27 @@
+{% extends '@UxAdmin/layout/default.html.twig' %}
+
+{% set paceTop = paceTop ?? '1' %}
+{% set appHeaderHide = appHeaderHide ?? '1' %}
+{% set appSidebarTwo = appSidebarTwo ?? '' %}
+{% set appSidebarHide = appSidebarHide ?? '1' %}
+
+{%~block page_content %}
+	{%~include '@UxAdmin/pages/login_v2.html.twig' %}
+{% endblock %}
+
+{%~block page_footer %}
+{{ parent() }}
+<script src="{{ asset('js/demo/login-v2.demo.js', uxadmin) }}"></script>
+<script>
+	App.setPageTitle('Color Admin | Login v2');
+	App.setPageOption({
+		appWithoutSidebar: true,
+		appWithoutHeader: true,
+		appClass: 'p-0',
+		appContentClass: 'p-0',
+		bodyClass: 'pace-top',
+		clearOptionOnLeave: true
+	});
+	App.restartGlobalFunction();
+</script>
+{% endblock %}

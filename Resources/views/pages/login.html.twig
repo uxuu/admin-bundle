@@ -21,21 +21,23 @@
 		<div class="login-body">
 			<!-- BEGIN login-content -->
 			<div class="login-content fs-13px">
-				<form action="index.html" method="GET">
+				<form action="{{ path('ux_admin_security_logincheck') }}" method="POST">
 					<div class="form-floating mb-20px">
-						<input type="email" class="form-control fs-13px h-45px" id="emailAddress" placeholder="Email Address" />
+						<input type="email" class="form-control fs-13px h-45px" id="emailAddress" name="_username" value="{{ last_username ?? '' }}" placeholder="Email Address" />
 						<label for="emailAddress" class="d-flex align-items-center py-0">Email Address</label>
 					</div>
 					<div class="form-floating mb-20px">
-						<input type="password" class="form-control fs-13px h-45px" id="password" placeholder="Password" />
+						<input type="password" class="form-control fs-13px h-45px" id="password" name="_password" placeholder="Password" />
 						<label for="password" class="d-flex align-items-center py-0">Password</label>
 					</div>
 					<div class="form-check mb-20px">
-						<input class="form-check-input" type="checkbox" value="" id="rememberMe" />
+						<input class="form-check-input" type="checkbox" value="" id="rememberMe" name="_remember_me" />
 						<label class="form-check-label" for="rememberMe">
 							Remember Me
 						</label>
 					</div>
+					<input type="hidden" name="_target_path" value="{{ target_path ?? 'ux_admin_default_index' }}" />
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
 					<div class="login-buttons">
 						<button type="submit" class="btn h-45px btn-success d-block w-100 btn-lg">Sign me in</button>
 					</div>
@@ -44,11 +46,18 @@
 			<!-- END login-content -->
 		</div>
 		<!-- END login-body -->
+{% if error ?? '' %}
+		<div class="m-t-20">
+			<h5 class="text-danger text-center">
+				{{ error.messageKey | trans(error.messageData, 'security') }}
+			</h5>
+		</div>
+{% endif %}
 	</div>
 	<!-- END login-container -->
 </div>
 <!-- END login -->
-
+{% if bodyClass is not defined %}
 <script>
 	App.setPageTitle('Color Admin | Login');
 	App.setPageOption({
@@ -61,3 +70,4 @@
 	});
 	App.restartGlobalFunction();
 </script>
+{% endif %}

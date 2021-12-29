@@ -55,7 +55,9 @@
 			{%-include '@UxAdmin/include/sidebar-right.html.twig' %}
 		{% endif %}
 
+		{%~block page_content %}
 		<div id="content" class="app-content {{ appContentClass }}"></div>
+		{% endblock %}
 
 		{%~include '@UxAdmin/include/component/scroll-top-btn.html.twig' %}
 
@@ -63,6 +65,8 @@
 
 	</div>
 
+	{%~block page_footer %}
 	{%~include '@UxAdmin/include/page-js.html.twig' %}
+	{% endblock %}
 </body>
 </html>
