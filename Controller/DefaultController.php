@@ -16,7 +16,7 @@ class DefaultController extends AbstractController
      */
     public function indexAction()
     {
-        return $this->render('@UxAdmin/index.html.twig', require(dirname(__DIR__) . '/sidebar.php'));
+        return $this->render('@UxAdmin/index.html.twig', require(__DIR__ . '/../Resources/config/sidebar.php'));
     }
 
     /**
