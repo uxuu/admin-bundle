@@ -14,6 +14,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/")
      */
+    #[Route("/")]
     public function indexAction()
     {
         return $this->render('@UxAdmin/index.html.twig', require(__DIR__ . '/../Resources/config/sidebar.php'));
@@ -22,6 +23,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/pages/{name}")
      */
+    #[Route("/pages/{name}")]
     public function pagesAction($name, Request $request)
     {
         return $this->render("@UxAdmin/pages/$name.twig");
@@ -31,6 +33,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/partial/{name}")
      */
+    #[Route("/partial/{name}")]
     public function partialAction($name, Request $request)
     {
         //return $this->render("@UxAdmin/partial/$name.twig");

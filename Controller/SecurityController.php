@@ -20,6 +20,7 @@ class SecurityController extends AbstractController
 	/**
 	 * @Route("/login", methods={"GET"})
 	 */
+	#[Route("/login", methods: ["GET"])]
 	public function loginAction(Request $request, AuthenticationUtils $authenticationUtils)
 	{
 		if ($this->getUser()) {
@@ -37,6 +38,7 @@ class SecurityController extends AbstractController
 	/**
 	 * @Route("/login_v2", methods={"GET"})
 	 */
+	#[Route("/login_v2", methods: ["GET"])]
 	public function login_v2Action(Request $request, AuthenticationUtils $authenticationUtils)
 	{
 		if ($this->getUser()) {
@@ -59,6 +61,7 @@ class SecurityController extends AbstractController
 	 *
 	 * @Route("/login_check")
 	 */
+	#[Route("/login_check")]
 	public function loginCheckAction()
 	{
 		throw new \Exception('This should never be reached!');
@@ -72,6 +75,7 @@ class SecurityController extends AbstractController
 	 *
 	 * @Route("/logout")
 	 */
+	#[Route("/logout")]
 	public function logoutAction()
 	{
 		throw new \Exception('This should never be reached!');
